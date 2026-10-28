@@ -83,7 +83,8 @@ const themes=[
 {top:'#0b1030',bot:'#2c3470',m:['#1b2250','#232b63','#2f3978'],orb:'#f2f0ff',ox:0.82,oy:0.16,or:22,base:'#2b3060',light:'#3a4080',dark:'#1d2146',cap:'#eef4ff',capS:'#a9bcff'},
 {top:'#1c0f3a',bot:'#a24a86',m:['#2a1650','#3a1f66','#53307e'],orb:'#ffd9f0',ox:0.2,oy:0.2,or:26,base:'#3a2a5e',light:'#4d3b7c',dark:'#241a40',cap:'#ffe6f3',capS:'#dca0d8'},
 {top:'#27306e',bot:'#ffa070',m:['#3a3c7c','#5b4884','#8c5c8c'],orb:'#fff1c8',ox:0.5,oy:0.3,or:34,base:'#3b4075',light:'#51589a',dark:'#262a52',cap:'#fff6e6',capS:'#ffcfa8'},
-{top:'#05060f',bot:'#3a1030',m:['#14091f','#1e0f33','#2c1646'],orb:'#ffb0b0',ox:0.72,oy:0.22,or:28,base:'#2a2440',light:'#3d3560',dark:'#17132a',cap:'#e6e0ff',capS:'#9a8cd8'}
+{top:'#05060f',bot:'#3a1030',m:['#14091f','#1e0f33','#2c1646'],orb:'#ffb0b0',ox:0.72,oy:0.22,or:28,base:'#2a2440',light:'#3d3560',dark:'#17132a',cap:'#e6e0ff',capS:'#9a8cd8'},
+{top:'#12040a',bot:'#7a1f2a',m:['#2a0d18','#3d1220','#52182a'],orb:'#ffd9a0',ox:0.3,oy:0.25,or:30,base:'#3a2230',light:'#5a3548',dark:'#1f1119',cap:'#fff0e0',capS:'#ffb99a'}
 ];
 
 const levels=[
@@ -181,6 +182,75 @@ B.r(0,20,4,2);B.c(9,16);B.c(13,16);B.r(18,20,22,2);
 B.k(22,19,3);B.r(22,15,3,1);B.k(22,16,3);B.k(27,19,2);
 B.r(32,6,2,12);B.r(37,4,3,16);B.x(34,1,3,5);B.b(29,12);B.p(1,20);
 }}
+,
+{n:'낮은 도약',t:3,s:'가시 천장 — 점프를 짧게 끊어요',f:B=>{
+B.r(0,14,40,2);B.k(0,16,40);
+B.r(0,20,4,2);B.r(7,20,3,2);B.r(13,20,3,2);B.r(20,20,3,2);B.r(27,20,3,2);B.r(35,20,5,2);
+B.x(37,17,3,3);B.p(2,20);
+}},
+{n:'가시 스프링',t:3,s:'스프링 위 가시를 피해 착지하세요',f:B=>{
+B.r(0,20,6,2);B.s(3,19);
+B.r(7,14,5,1);B.k(7,13,1);B.k(11,13,1);B.s(9,13);B.b(12,10);
+B.r(14,8,5,1);B.k(14,7,1);B.k(18,7,1);B.s(16,7);
+B.r(6,2,10,1);B.k(6,1,1);B.x(10,0,4,2);B.p(1,20);
+}},
+{n:'이동 블록 II',t:3,s:'블록의 박자에 맞춰 건너세요',f:B=>{
+B.r(0,20,4,2);
+B.m(6,19,3,1,5,0,80,10);
+B.m(16,17,3,1,0,-4,70,10);
+B.m(22,12,3,1,6,0,80,10);
+B.r(23,9,5,1);B.k(23,10,5);
+B.r(34,12,6,1);B.x(37,9,3,3);B.p(2,20);
+}},
+{n:'수정 폭포',t:3,s:'대시로 수정을 이어 위로!',f:B=>{
+B.r(0,20,40,2);
+B.r(16,4,1,16);B.r(23,6,2,14);
+for(let r=8;r<=13;r++)B.k(17,r,1);
+for(let r=9;r<=12;r++)B.k(22,r,1);
+B.c(19,16);B.c(19,11);B.c(19,6);B.b(21,8);
+B.r(23,5,12,1);B.x(28,2,3,3);B.p(19,20);
+}},
+{n:'벽 회랑',t:4,s:'가시를 피해 좌우 벽을 번갈아 올라요',f:B=>{
+B.r(0,20,40,2);
+B.r(10,0,2,16);B.r(15,0,2,20);
+B.k(12,12,1);B.k(12,13,1);B.k(14,7,1);B.k(14,8,1);B.k(12,3,1);B.k(12,4,1);
+B.x(12,0,3,2);B.p(2,20);
+}},
+{n:'번개 대시',t:4,s:'수정을 따라 지그재그로 대시!',f:B=>{
+B.r(0,20,40,2);B.k(5,19,30);
+B.c(8,15);B.c(11,12);B.c(14,15);B.c(17,12);B.c(20,15);B.c(23,12);B.c(26,15);B.c(29,12);B.c(32,15);
+B.x(37,17,3,3);B.p(2,20);
+}},
+{n:'엘리베이터 II',t:4,s:'천장 가시 — 마지막은 살짝만 뛰어요',f:B=>{
+B.r(0,20,4,2);
+B.m(6,19,3,1,0,-9,70,10);
+B.r(11,10,3,1);
+B.m(16,10,3,1,0,8,70,10);
+B.r(21,18,3,1);
+B.m(26,18,3,1,0,-12,80,10);
+B.r(25,2,5,1);B.k(25,3,5);
+B.r(31,6,9,1);B.x(36,3,3,3);B.p(2,20);
+}},
+{n:'정상 직전',t:4,s:'스프링으로 올라 수정으로 건너요',f:B=>{
+B.r(0,20,6,2);B.s(3,19);
+B.r(7,14,5,1);
+B.r(14,7,16,1);B.k(14,8,16);
+B.c(15,11);B.c(19,11);B.c(23,11);B.c(27,11);B.b(21,11);
+B.r(31,12,9,1);B.x(36,9,3,3);B.p(1,20);
+}},
+{n:'좁은 틈',t:4,s:'블록으로 건너 좁은 틈을 올라요',f:B=>{
+B.r(0,20,4,2);
+B.m(6,19,3,1,6,0,70,10);
+B.r(17,4,2,12);B.r(22,6,2,14);B.r(17,20,7,2);
+B.k(19,9,1);B.k(19,10,1);B.k(21,13,1);B.k(21,14,1);
+B.x(19,1,3,3);B.p(2,20);
+}},
+{n:'진짜 정상',t:4,s:'모든 기술을 총동원하세요',f:B=>{
+B.r(0,20,4,2);B.c(9,16);B.r(14,20,4,2);B.c(23,16);B.r(28,20,12,2);
+B.r(33,6,2,11);B.r(38,4,2,16);
+B.k(35,10,1);B.k(35,11,1);B.k(37,7,1);B.k(37,8,1);
+B.x(35,1,3,3);B.p(1,20);
+}}
 ];
 
 const canvas=document.getElementById('c');
@@ -218,7 +288,9 @@ let last=0,acc=0;
 
 let cw=640,ch=352,sc=1,K=1,U=0.5,camX=0,camY=0;
 let lx0=0,ly0=0,lx1=VW,ly1=VH,LXa=0,LYa=0,followCam=false;
-let bg=null,bgG=null,layer=null,lg=null,titleBg=null,titleGrad=null;
+let bg=null,bgG=null,layer=null,lg=null,titleBg=null,titleGrad=null,titleTop=null,titlePP=2,titlePX=0,titleFY=0,titleChX=null,titleCloud=null;
+const TITLE='SUMMIT CLIMB';
+const AUR=['rgba(80,255,190,0.07)','rgba(120,150,255,0.07)','rgba(255,120,220,0.05)'];
 let spr=[],spkSprites=[],crysOn=null,crysOff=null;
 let fs=14,shOff=1,fHud='',fIntro='',fSub='',fTitle='',fBig='';
 
@@ -241,7 +313,8 @@ const tracks=[
 {bpm:92,w:'triangle',ch:[[57,1],[53,0],[48,0],[55,0]]},
 {bpm:100,w:'square',ch:[[50,1],[46,0],[53,0],[48,0]]},
 {bpm:112,w:'square',ch:[[48,0],[55,0],[57,1],[53,0]]},
-{bpm:124,w:'square',ch:[[57,1],[55,0],[53,0],[52,0]]}
+{bpm:124,w:'square',ch:[[57,1],[55,0],[53,0],[52,0]]},
+{bpm:136,w:'square',ch:[[50,1],[53,0],[57,1],[55,0]]}
 ];
 const minorIv=[0,3,7],majorIv=[0,4,7],arpIdx=[0,1,2,3,2,1,2,1];
 
@@ -1343,12 +1416,15 @@ const peakX=Math.round(cw*0.7/pp)*pp,peakY=Math.round(ch*0.42/pp)*pp;
 const slope=(ch*0.86-peakY)/(cw*0.5);
 const snowDepth=ch*0.14;
 let flagY=peakY;
+titleTop=new Int16Array(Math.ceil(cw/pp)+1);
+titlePP=pp;
 for(let x=0;x<cw;x+=pp){
 const dx=Math.abs(x-peakX);
 const i=x/pp;
 let h=peakY+dx*slope+(hash(i,7)-0.5)*pp*3+Math.sin(dx*0.04)*pp*2;
 h=Math.round(h/pp)*pp;
 if(dx<pp)flagY=Math.min(flagY,h);
+titleTop[i]=Math.min(h,ch);
 if(h>=ch)continue;
 const left=x<peakX;
 g.fillStyle=left?'#34377a':'#202357';
@@ -1359,13 +1435,8 @@ g.fillStyle=left?'#f4f7ff':'#b9c3f2';
 g.fillRect(x,h,pp,sd);
 }
 }
-const ph=Math.round(ch*0.07/pp)*pp;
-g.fillStyle='#e8e8f8';
-g.fillRect(peakX,flagY-ph,pp,ph+pp);
-g.fillStyle='#ff4d6d';
-g.fillRect(peakX+pp,flagY-ph,Math.round(ch*0.045/pp)*pp,Math.round(ch*0.026/pp)*pp);
-g.fillStyle='#ffb0b8';
-g.fillRect(peakX+pp,flagY-ph,Math.round(ch*0.045/pp)*pp,pp);
+titlePX=peakX;
+titleFY=flagY;
 ridge(0.84,0.06,3,'#15183c');
 ridge(0.92,0.045,5,'#0a0c26');
 g.fillStyle='#05061a';
@@ -1378,20 +1449,24 @@ g.fillRect(x-lw/2,yb-th+Math.round(l*th/5/pp)*pp,lw,Math.round(th/5/pp)*pp+pp);
 }
 g.fillRect(x-pp/2,yb,pp,pp*2);
 }
-const q=Math.max(2,Math.round(3*U));
-const cx0=Math.round(cw*0.22/q)*q,cy0=ridgeH(0.84,0.06,3,cw*0.22)+q;
-g.fillStyle='#7a86ff';
-g.fillRect(cx0,cy0-q*4,q*3,q*3);
-g.fillStyle='#ffd0a8';
-g.fillRect(cx0,cy0-q*7,q*3,q*3);
-g.fillStyle='#ff4d6d';
-g.fillRect(cx0-q,cy0-q*8,q*4,q*2);
-g.fillRect(cx0-q,cy0-q*6,q,q*2);
-g.fillStyle='#232a66';
-g.fillRect(cx0,cy0-q,q,q);
-g.fillRect(cx0+q*2,cy0-q,q,q);
-g.fillStyle='#ffffff';
-g.fillRect(cx0+q*2,cy0-q*6,q,q);
+const cwid=Math.round(cw*0.2/pp)*pp,chei=Math.round(ch*0.05/pp)*pp;
+const [cc,cg]=mk(cwid,chei);
+titleCloud=cc;
+cg.fillStyle='rgba(255,255,255,0.22)';
+const rows=[[0.2,0.8],[0.1,0.9],[0,1],[0.1,0.95]];
+for(let r=0;r<rows.length;r++){
+const x0=Math.round(rows[r][0]*cwid/pp)*pp,x1=Math.round(rows[r][1]*cwid/pp)*pp;
+cg.fillRect(x0,Math.round(r*chei/4/pp)*pp,x1-x0,Math.round(chei/4/pp)*pp+pp);
+}
+ctx.font=fBig;
+titleChX=[];
+for(let i=0;i<TITLE.length;i++)titleChX.push(ctx.measureText(TITLE.slice(0,i)).width);
+titleChX.push(ctx.measureText(TITLE).width);
+const vg=g.createRadialGradient(cw/2,ch*0.5,Math.min(cw,ch)*0.3,cw/2,ch*0.5,Math.max(cw,ch)*0.75);
+vg.addColorStop(0,'rgba(0,0,0,0)');
+vg.addColorStop(1,'rgba(0,0,10,0.55)');
+g.fillStyle=vg;
+g.fillRect(0,0,cw,ch);
 }
 
 function drawText(s,x,y,align,col){
@@ -1505,6 +1580,16 @@ for(let i=0;i<SN;i++)ctx.fillRect(Math.round(snX[i]*cw),Math.round(snY[i]*ch),fl
 
 if(state===3){
 const pp=Math.max(2,Math.round(2*U));
+const pp2=pp*2;
+for(let r=0;r<3;r++){
+ctx.fillStyle=AUR[r];
+for(let x=0;x<cw;x+=pp2){
+const t=x/cw;
+const y=ch*(0.12+r*0.045)+Math.sin(t*5+tick*0.012+r*2)*ch*0.04+Math.sin(t*11-tick*0.02+r)*ch*0.015;
+const hh=ch*(0.07+0.03*Math.sin(t*3+tick*0.01+r));
+ctx.fillRect(x,Math.round(y),pp2,Math.round(hh));
+}
+}
 ctx.fillStyle='#ffffff';
 for(let i=0;i<26;i++){
 const a=0.5+0.5*Math.sin(tick*0.05+i*1.7);
@@ -1525,33 +1610,126 @@ ctx.fillRect(Math.round(cw*0.15+ss*cw*0.015-k*cw*0.006),Math.round(ch*0.08+ss*ch
 }
 }
 ctx.globalAlpha=1;
+if(titleCloud){
+const cwid=titleCloud.width,span=cw+cwid;
+for(let i=0;i<3;i++){
+const x=Math.round(((tick*(0.12+i*0.09)*U+i*cw*0.37)%span)-cwid);
+ctx.drawImage(titleCloud,x,Math.round(ch*(0.36+i*0.07)));
+}
+}
+const fw=Math.round(ch*0.05/pp)*pp,fh=Math.round(ch*0.028/pp)*pp,ph=Math.round(ch*0.07/pp)*pp;
+ctx.fillStyle='#e8e8f8';
+ctx.fillRect(titlePX,titleFY-ph,pp,ph+pp);
+for(let i=0;i<fw;i+=pp){
+const wv=Math.round(Math.sin(tick*0.12+i/pp*0.9)*0.9)*pp;
+ctx.fillStyle='#ff4d6d';
+ctx.fillRect(titlePX+pp+i,titleFY-ph+wv,pp,fh);
+ctx.fillStyle='#ffb0b8';
+ctx.fillRect(titlePX+pp+i,titleFY-ph+wv,pp,pp);
+}
+const q=Math.max(2,Math.round(2.5*U));
+const x0=titlePX-cw*0.3,range=cw*0.3-q*2;
+const sp=0.35*U;
+const per=(range+sp*240);
+const pr=(tick*sp)%per;
+const walking=pr<range;
+const cx=Math.round((x0+Math.min(pr,range))/q)*q;
+const idx=Math.min(titleTop.length-1,Math.max(0,Math.floor(cx/titlePP)));
+const cy=titleTop[idx];
+ctx.globalAlpha=Math.min(1,pr/(sp*40));
+const step=walking?Math.floor(tick/7)%2:0;
+const bob=walking&&step?q:0;
+ctx.fillStyle='#232a66';
+ctx.fillRect(cx+(step?0:q),cy-q,q,q);
+ctx.fillRect(cx+(step?q*2:q),cy-q-(walking?q:0)*(step?0:1)*0,q,q);
+ctx.fillStyle='#7a86ff';
+ctx.fillRect(cx,cy-q*4-bob,q*3,q*3);
+ctx.fillStyle='#ffd0a8';
+ctx.fillRect(cx,cy-q*7-bob,q*3,q*3);
+ctx.fillStyle='#ff4d6d';
+ctx.fillRect(cx-q,cy-q*8-bob,q*4,q*2);
+const tw2=Math.round(Math.sin(tick*0.2))*q;
+ctx.fillRect(cx-q*2,cy-q*7-bob+tw2,q,q*2);
+ctx.fillStyle='#ffffff';
+ctx.fillRect(cx+q*2,cy-q*6-bob,q,q);
+if(!walking){
+ctx.fillStyle='#7a86ff';
+const up=Math.floor(tick/10)%2?q:0;
+ctx.fillRect(cx-q,cy-q*6-up,q,q*2);
+ctx.fillRect(cx+q*3,cy-q*6-up,q,q*2);
+}
+ctx.globalAlpha=1;
 const ty=Math.round(ch*0.27);
-ctx.textAlign='center';
+ctx.textAlign='left';
 ctx.font=fBig;
+const tw=titleChX[TITLE.length],lx=cw/2-tw/2;
 const off=Math.max(2,Math.round(fs*0.18));
+for(let i=0;i<TITLE.length;i++){
+const c=TITLE.charAt(i);
+if(c===' ')continue;
+const x=Math.round(lx+titleChX[i]),y=ty+Math.round(Math.sin(tick*0.04+i*0.55)*fs*0.12);
 ctx.fillStyle='rgba(0,0,0,0.55)';
-ctx.fillText('SUMMIT CLIMB',cw/2+off,ty+off*1.6);
+ctx.fillText(c,x+off,y+off*1.6);
 ctx.fillStyle='#7a2d1a';
-ctx.fillText('SUMMIT CLIMB',cw/2,ty+off);
+ctx.fillText(c,x,y+off);
 ctx.fillStyle=titleGrad;
-ctx.fillText('SUMMIT CLIMB',cw/2,ty);
+ctx.fillText(c,x,y);
+}
+const gp=tick%50;
+if(gp<14){
+let gi=(Math.floor(tick/50)*5)%TITLE.length;
+if(TITLE.charAt(gi)===' ')gi=0;
+const gx=Math.round(lx+titleChX[gi]+(titleChX[gi+1]-titleChX[gi])*0.5),gy=Math.round(ty-fs*2.2+Math.sin(tick*0.04+gi*0.55)*fs*0.12);
+const gs=Math.max(1,Math.round(Math.sin(gp/14*3.1416)*3))*pp;
+ctx.fillStyle='#ffffff';
+ctx.fillRect(gx-gs,gy,gs*2+pp,pp);
+ctx.fillRect(gx,gy-gs,pp,gs*2+pp);
+}
 ctx.font=fSub;
 const sub='산 정상까지 '+levels.length+'개의 스테이지';
 const sy=ty+fs*2.4;
 drawText(sub,cw/2,sy,'center','#ffe9c8');
-const lw=Math.min(cw*0.12,ctx.measureText(sub).width*0.35);
 const sw=ctx.measureText(sub).width/2+fs;
+const lw=Math.min(cw*0.12,sw*0.7);
 ctx.fillStyle='#ffb347';
 ctx.fillRect(Math.round(cw/2-sw-lw),Math.round(sy-fs*0.35),Math.round(lw),Math.max(2,pp));
 ctx.fillRect(Math.round(cw/2+sw),Math.round(sy-fs*0.35),Math.round(lw),Math.max(2,pp));
-const blink=0.6+0.4*Math.sin(tick*0.09);
-ctx.globalAlpha=blink;
+const bw=Math.round(fs*13),bh=Math.round(fs*2.8),bx=Math.round(cw/2-bw/2),by=Math.round(ch*0.58);
+const pl=Math.sin(tick*0.1);
+ctx.fillStyle='rgba(8,10,34,0.75)';
+ctx.fillRect(bx,by,bw,bh);
+ctx.fillStyle=pl>0?'#ffe9a0':'#ffb347';
+ctx.fillRect(bx,by,bw,pp);
+ctx.fillRect(bx,by+bh-pp,bw,pp);
+ctx.fillRect(bx,by,pp,bh);
+ctx.fillRect(bx+bw-pp,by,pp,bh);
 ctx.font=fIntro;
-drawText('PRESS  Z / X',cw/2,ch*0.66,'center','#ffffff');
-ctx.globalAlpha=1;
+drawText('START',cw/2,by+bh/2+fs*0.55,'center','#ffffff');
+const ao=Math.round(Math.abs(pl)*pp*2);
+ctx.fillStyle='#ffe9a0';
+for(let r=-2;r<=2;r++){
+const w=(3-Math.abs(r))*pp;
+ctx.fillRect(bx-pp*5-ao,by+bh/2+r*pp-pp/2,w,pp);
+ctx.fillRect(bx+bw+pp*5+ao-w,by+bh/2+r*pp-pp/2,w,pp);
+}
 ctx.font=fSub;
-drawText('터치 : 점프 · 대시 버튼',cw/2,ch*0.66+fs*2,'center','#c9d1ff');
-if(bestStr)drawText(bestStr,cw/2,ch*0.66+fs*4,'center','#ffd27a');
+drawText('Z / X / 화면 터치',cw/2,by+bh+fs*1.8,'center','#c9d1ff');
+if(bestStr)drawText(bestStr,cw/2,by+bh+fs*3.8,'center','#ffd27a');
+const fy=Math.round(ch*0.75),fx=[cw*0.25,cw*0.5,cw*0.75];
+const ik=Math.max(K,fs*0.2);
+const ic=Math.round(16*ik);
+ctx.drawImage(crysOn,Math.round(fx[0]-ic/2),fy,ic,ic);
+const sx0=Math.round(fx[1]-8*ik);
+const lq=(x,y,w,h,col)=>{ctx.fillStyle=col;ctx.fillRect(sx0+Math.round(x*ik),fy+Math.round(y*ik),Math.round(w*ik),Math.round(h*ik));};
+lq(2,13,12,3,'#3d4160');lq(6,11,4,2,'#c9cfee');lq(2,8,12,3,'#ff6b6b');lq(2,8,12,1,'#ffb0b0');
+const bx0=Math.round(fx[2]-8*ik);
+const lb=(x,y,w,h,col)=>{ctx.fillStyle=col;ctx.fillRect(bx0+Math.round(x*ik),fy+Math.round(y*ik),Math.round(w*ik),Math.round(h*ik));};
+lb(6,0,4,2,'#3fd16b');lb(4,3,8,2,'#ff4d6d');lb(3,5,10,4,'#ff4d6d');lb(4,9,8,2,'#d92e50');lb(6,11,4,1,'#d92e50');lb(4,5,2,2,'#ffb0b8');lb(8,7,1,1,'#ffe9a0');lb(10,9,1,1,'#ffe9a0');
+ctx.font=fSub;
+const ly=fy+ic+fs*1.4;
+drawText('대시 수정',fx[0],ly,'center','#9fe9ff');
+drawText('스프링',fx[1],ly,'center','#ffb0b0');
+drawText('딸기 '+berryMax+'개',fx[2],ly,'center','#ffb0c0');
 ctx.font=fHud;
 drawText('←→↑↓ 이동 · Z 점프 · X 대시 · ESC 설정 · F 전체화면',cw/2,ch-fs*1.2,'center','#8f9ae0');
 return;
@@ -1603,6 +1781,11 @@ requestAnimationFrame(frame);
 function resize(){
 layout();
 }
+
+canvas.addEventListener('pointerdown',()=>{
+unlockAudio();
+if(!paused&&(state===3||state===2))jumpQ=true;
+});
 
 document.addEventListener('keydown',ev=>{
 unlockAudio();
